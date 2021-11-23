@@ -8,9 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var tvName : String = ""
+    @State private var tvEmail : String = ""
+    @State private var tvPhone : String = ""
+    private let db = DatabaseHelper()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        Form {
+            Section {
+                TextField("Full Name", text: $tvName)
+                TextField("Email", text: $tvEmail)
+                TextField("Phone", text: $tvPhone)
+            }
+            Button (action: {db.addFriend()}){
+                Text("Press here to test")
+            }
+        }
     }
 }
 
