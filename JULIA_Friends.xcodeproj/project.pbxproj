@@ -15,6 +15,8 @@
 		FCAEE4D3274C733500D7DC89 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FCAEE4D2274C733500D7DC89 /* FirebaseAnalytics */; };
 		FCAEE4D5274C733500D7DC89 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FCAEE4D4274C733500D7DC89 /* FirebaseFirestore */; };
 		FCD8FFB8274C7889003343EA /* DatabaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD8FFB7274C7889003343EA /* DatabaseHelper.swift */; };
+		FCD8FFBB274C7DC1003343EA /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD8FFBA274C7DC1003343EA /* Friend.swift */; };
+		FCD8FFBE274C94C4003343EA /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD8FFBD274C94C4003343EA /* FriendsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		FCAEE4C8274C6DBD00D7DC89 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FCAEE4CF274C70B100D7DC89 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FCD8FFB7274C7889003343EA /* DatabaseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseHelper.swift; sourceTree = "<group>"; };
+		FCD8FFBA274C7DC1003343EA /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		FCD8FFBD274C94C4003343EA /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 		FCAEE4C0274C6DBB00D7DC89 /* JULIA_Friends */ = {
 			isa = PBXGroup;
 			children = (
+				FCD8FFBC274C94B0003343EA /* Views */,
+				FCD8FFB9274C7DB0003343EA /* Models */,
 				FCD8FFB6274C786C003343EA /* Helpers */,
 				FCAEE4C1274C6DBB00D7DC89 /* JULIA_FriendsApp.swift */,
 				FCAEE4CF274C70B100D7DC89 /* GoogleService-Info.plist */,
@@ -83,6 +89,22 @@
 				FCD8FFB7274C7889003343EA /* DatabaseHelper.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		FCD8FFB9274C7DB0003343EA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FCD8FFBA274C7DC1003343EA /* Friend.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FCD8FFBC274C94B0003343EA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FCD8FFBD274C94C4003343EA /* FriendsView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,9 +185,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCD8FFBE274C94C4003343EA /* FriendsView.swift in Sources */,
 				FCAEE4C4274C6DBB00D7DC89 /* ContentView.swift in Sources */,
 				FCD8FFB8274C7889003343EA /* DatabaseHelper.swift in Sources */,
 				FCAEE4C2274C6DBB00D7DC89 /* JULIA_FriendsApp.swift in Sources */,
+				FCD8FFBB274C7DC1003343EA /* Friend.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
