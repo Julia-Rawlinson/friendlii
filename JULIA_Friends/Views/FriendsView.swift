@@ -9,29 +9,41 @@ import SwiftUI
 
 struct FriendsView: View {
     
-    @ObservedObject private var helper = DatabaseHelper()
+    @ObservedObject private var dbHelper = DatabaseHelper()
+    private let baseUrl : String = "https://flagcdn.com/80x60/"
+    private let imageHeight : Double = 0.0
     
     init(){
-        helper.getAllFriends()
+        dbHelper.getAllFriends()
     }
     
     var body: some View {
-        if(!(helper.list.count == 0)){
-            List(helper.list, id: \.self){ item in
-                
-                VStack {
-                    Text(item.name)
-                    Text(item.email)
-                    Text(item.phone)
-                    Text(item.city)
-                    Text(item.country)
-                }
-                
+        if(!(dbHelper.list.count == 0)){
+            List(dbHelper.list, id: \.self){ item in
+                FriendListItem(friend: item)
             }
         } else {
             Text("You are friendless and will die alone")
         }
     }
+    
+    private func getImageUrl(code: String) -> URL? {
+        guard let url = URL(string: String(baseUrl + code.lowercased() + ".png")) else {return nil}
+        print(#function, url)
+        return url
+    }
+    
+    struct ListRow : View {
+        let imageHeight : Double = 100
+        let name : String
+        let code : String
+        
+        var body : some View {
+            Text("")
+        }
+        
+    }
+    
 }
 
 struct FriendsView_Previews: PreviewProvider {

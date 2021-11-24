@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FC747DE2274EAEB800578974 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC747DE1274EAEB800578974 /* LocationHelper.swift */; };
+		FC747DE6274EF19C00578974 /* FriendListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC747DE5274EF19C00578974 /* FriendListItem.swift */; };
 		FCAEE4C2274C6DBB00D7DC89 /* JULIA_FriendsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAEE4C1274C6DBB00D7DC89 /* JULIA_FriendsApp.swift */; };
 		FCAEE4C4274C6DBB00D7DC89 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAEE4C3274C6DBB00D7DC89 /* ContentView.swift */; };
 		FCAEE4C6274C6DBD00D7DC89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCAEE4C5274C6DBD00D7DC89 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		FC747DE1274EAEB800578974 /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
+		FC747DE5274EF19C00578974 /* FriendListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListItem.swift; sourceTree = "<group>"; };
 		FCAEE4BE274C6DBB00D7DC89 /* JULIA_Friends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JULIA_Friends.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCAEE4C1274C6DBB00D7DC89 /* JULIA_FriendsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JULIA_FriendsApp.swift; sourceTree = "<group>"; };
 		FCAEE4C3274C6DBB00D7DC89 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				FCD8FFBD274C94C4003343EA /* FriendsView.swift */,
+				FC747DE5274EF19C00578974 /* FriendListItem.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC747DE2274EAEB800578974 /* LocationHelper.swift in Sources */,
+				FC747DE6274EF19C00578974 /* FriendListItem.swift in Sources */,
 				FCD8FFBE274C94C4003343EA /* FriendsView.swift in Sources */,
 				FCAEE4C4274C6DBB00D7DC89 /* ContentView.swift in Sources */,
 				FCD8FFB8274C7889003343EA /* DatabaseHelper.swift in Sources */,
