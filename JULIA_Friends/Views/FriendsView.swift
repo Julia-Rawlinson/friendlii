@@ -29,7 +29,7 @@ struct FriendsView: View {
                 
             }
         } else {
-            Text("You are friendless and wil die alone")
+            Text("You are friendless and will die alone")
         }
     }
 }

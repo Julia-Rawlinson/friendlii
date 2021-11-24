@@ -6,17 +6,23 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct ContentView: View {
     
     private let db = DatabaseHelper()
+    private let loc = LocationHelper()
     @State var selection: Int? = nil
     @State private var errorMessage : String = "Standard error"
     @State private var inputError : Bool = false
+    @State private var obtainedCoordinates : CLLocation?
+    @State private var obtainedCode : String?
+    //@State private var result : String = ""
     
     @State private var tvName : String = ""
     @State private var tvEmail : String = ""
     @State private var tvPhone : String = ""
+    @State private var tvStreet : String = ""
     @State private var tvCity : String = ""
     @State private var tvCountry : String = ""
     
@@ -29,12 +35,14 @@ struct ContentView: View {
                         TextField("Full Name", text: $tvName)
                         TextField("Email", text: $tvEmail).keyboardType(.emailAddress)
                         TextField("Phone", text: $tvPhone).keyboardType(.phonePad)
+                        TextField("Street Address", text: $tvStreet)
                         TextField("City", text: $tvCity)
                         TextField("Country", text: $tvCountry)
                     }
                     
                     Button (action: {
-                        if(self.isInputValid()){
+                        if(true/*self.isInputValid()*/){
+                            /*
                             db.addFriend(
                                     name: tvName,
                                     email: tvEmail,
@@ -42,6 +50,10 @@ struct ContentView: View {
                                     city: tvCity,
                                     country: tvCountry
                                 )
+                             */
+                            let address = "\(self.tvStreet), \(self.tvCity), \(self.tvCountry)"
+                            self.addNewFriend(address: address)
+                            
                         }
                         
                     }){
@@ -61,7 +73,7 @@ struct ContentView: View {
                 trailing: Button(
                     action: {
                         //Navigate to ListView
-                        print(#function, "Navigate to StaffView")
+                        print(#function, "Navigate to FriendsView")
                         self.selection = 1
                     }) {
                     Text("Friend List")
@@ -79,6 +91,28 @@ struct ContentView: View {
         } // Button
 
     }
+    
+    private func addNewFriend(address: String) {
+        
+        self.loc.doGeocoding(address: address, completionHandler: { (coordinates, code, error) in
+            
+            if (error == nil && coordinates != nil && code != nil){
+                //sucessfully obtained coordinates
+                self.obtainedCoordinates = coordinates!
+                self.obtainedCode = code!
+                self.db.addFriend(name: tvName, email: tvEmail, phone: tvPhone, city: tvCity, country: tvCountry, lat: self.obtainedCoordinates!.coordinate.latitude, lon: self.obtainedCoordinates!.coordinate.longitude, isoCountryCode: self.obtainedCode!)
+                
+                print(#function, "Coordinates obtained\nLat: \(coordinates!.coordinate.latitude) \nLng: \(coordinates!.coordinate.longitude)")
+            }else{
+                //The location could not be resolved
+                self.errorMessage = "The coordinates of the provided address could not be resolved"
+                self.inputError = true
+                print(#function, "error: ", error?.localizedDescription as Any)
+            }
+        })
+        
+    }
+    
     
     private func isInputValid() -> Bool {
         

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct Friend : Identifiable, Hashable {
     
@@ -15,5 +16,7 @@ struct Friend : Identifiable, Hashable {
     var phone: String
     var city: String
     var country: String
-    
+    var lat : Double
+    var lon : Double
+    var isoCountryCode : String
 }
