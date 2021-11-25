@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC14E772274F501A0034A20C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC14E771274F501A0034A20C /* MapView.swift */; };
 		FC747DE2274EAEB800578974 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC747DE1274EAEB800578974 /* LocationHelper.swift */; };
 		FC747DE6274EF19C00578974 /* FriendListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC747DE5274EF19C00578974 /* FriendListItem.swift */; };
 		FCAEE4C2274C6DBB00D7DC89 /* JULIA_FriendsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAEE4C1274C6DBB00D7DC89 /* JULIA_FriendsApp.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FC14E771274F501A0034A20C /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		FC747DE1274EAEB800578974 /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 		FC747DE5274EF19C00578974 /* FriendListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListItem.swift; sourceTree = "<group>"; };
 		FCAEE4BE274C6DBB00D7DC89 /* JULIA_Friends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JULIA_Friends.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +111,7 @@
 			children = (
 				FCD8FFBD274C94C4003343EA /* FriendsView.swift */,
 				FC747DE5274EF19C00578974 /* FriendListItem.swift */,
+				FC14E771274F501A0034A20C /* MapView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC747DE2274EAEB800578974 /* LocationHelper.swift in Sources */,
+				FC14E772274F501A0034A20C /* MapView.swift in Sources */,
 				FC747DE6274EF19C00578974 /* FriendListItem.swift in Sources */,
 				FCD8FFBE274C94C4003343EA /* FriendsView.swift in Sources */,
 				FCAEE4C4274C6DBB00D7DC89 /* ContentView.swift in Sources */,

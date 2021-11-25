@@ -18,13 +18,30 @@ struct FriendsView: View {
     }
     
     var body: some View {
-        if(!(dbHelper.list.count == 0)){
-            List(dbHelper.list, id: \.self){ item in
-                FriendListItem(friend: item)
+        HStack {
+            ZStack {
+                LinearGradient(gradient: Gradient(colors: [Color("BrightPurple"), Color("Lavender")]), startPoint: .topLeading, endPoint: .bottomTrailing).ignoresSafeArea()
+                ScrollView {
+                    VStack(alignment: .leading) {
+                        ForEach(dbHelper.list, id: \.self) { item in
+                            NavigationLink{
+                                MapView(friend: item)
+                            } label: {
+                                FriendListItem(friend: item)
+                                    .cornerRadius(10)
+                            }
+                            
+
+                        }
+                    }
+                    
+                }
+                .padding()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
-        } else {
-            Text("You are friendless and will die alone")
         }
+        .navigationBarTitle("")
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     private func getImageUrl(code: String) -> URL? {

@@ -11,6 +11,8 @@ import Firebase
 @main
 struct JULIA_FriendsApp: App {
     
+    let locationHelper = LocationHelper()
+    
     init(){
         //Set up firebase at launch
         FirebaseApp.configure()
@@ -18,7 +20,7 @@ struct JULIA_FriendsApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(locationHelper)
         }
     }
 }
