@@ -10,8 +10,6 @@ import SwiftUI
 struct FriendsView: View {
     
     @ObservedObject private var dbHelper = DatabaseHelper()
-    private let baseUrl : String = "https://flagcdn.com/80x60/"
-    private let imageHeight : Double = 0.0
     
     init(){
         dbHelper.getAllFriends()
@@ -30,11 +28,8 @@ struct FriendsView: View {
                                 FriendListItem(friend: item)
                                     .cornerRadius(10)
                             }
-                            
-
                         }
                     }
-                    
                 }
                 .padding()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -42,23 +37,6 @@ struct FriendsView: View {
         }
         .navigationBarTitle("")
         .navigationBarTitleDisplayMode(.inline)
-    }
-    
-    private func getImageUrl(code: String) -> URL? {
-        guard let url = URL(string: String(baseUrl + code.lowercased() + ".png")) else {return nil}
-        print(#function, url)
-        return url
-    }
-    
-    struct ListRow : View {
-        let imageHeight : Double = 100
-        let name : String
-        let code : String
-        
-        var body : some View {
-            Text("")
-        }
-        
     }
     
 }

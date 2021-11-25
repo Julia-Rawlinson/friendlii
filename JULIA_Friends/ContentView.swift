@@ -25,13 +25,8 @@ struct ContentView: View {
     @State private var inputError : Bool = false
     @State private var obtainedCoordinates : CLLocation?
     @State private var obtainedCode : String?
-    
-    @State private var tvName : String = ""
-    @State private var tvEmail : String = ""
-    @State private var tvPhone : String = ""
     @State private var tvStreet : String = ""
-    @State private var tvCity : String = ""
-    @State private var tvCountry : String = ""
+    @State private var friend : Friend = Friend()
     
     var body: some View {
         
@@ -42,25 +37,25 @@ struct ContentView: View {
                     NavigationLink(destination: FriendsView(), tag: 1, selection: $selection){}
                     
                     Section(header: Text("Contact Details")) {
-                        TextField("Full Name", text: $tvName)
+                        TextField("Full Name", text: $friend.name)
                             .textFieldStyle(CustomTextFieldStyle())
-                        TextField("Email", text: $tvEmail).keyboardType(.emailAddress)
+                        TextField("Email", text: $friend.email).keyboardType(.emailAddress)
                             .textFieldStyle(CustomTextFieldStyle())
-                        TextField("Phone", text: $tvPhone).keyboardType(.phonePad)
+                        TextField("Phone", text: $friend.phone).keyboardType(.phonePad)
                             .textFieldStyle(CustomTextFieldStyle())
                     }
                     Section(header: Text("Location")){
                         TextField("Street Address", text: $tvStreet)
                             .textFieldStyle(CustomTextFieldStyle())
-                        TextField("City", text: $tvCity)
+                        TextField("City", text: $friend.city)
                             .textFieldStyle(CustomTextFieldStyle())
-                        TextField("Country", text: $tvCountry)
+                        TextField("Country", text: $friend.country)
                             .textFieldStyle(CustomTextFieldStyle())
                     }
                     Spacer()
                     Button (action: {
                         if(self.isInputValid()){
-                            let address = "\(self.tvStreet), \(self.tvCity), \(self.tvCountry)"
+                            let address = "\(self.tvStreet), \(self.friend.city), \(self.friend.country)"
                             self.addNewFriend(address: address)
                         }
                     }){
@@ -94,7 +89,7 @@ struct ContentView: View {
             .alert(isPresented: self.$inputError){
                 Alert(
                     //Create bad input alert
-                    title: Text("Invalid Order"),
+                    title: Text("Invalid Input"),
                     message: Text(errorMessage),
                     dismissButton: .default(Text("Close"), action: {self.errorMessage = ""}
                                            )
@@ -112,7 +107,7 @@ struct ContentView: View {
                 //sucessfully obtained coordinates
                 self.obtainedCoordinates = coordinates!
                 self.obtainedCode = code!
-                self.db.addFriend(name: tvName, email: tvEmail, phone: tvPhone, city: tvCity, country: tvCountry, lat: self.obtainedCoordinates!.coordinate.latitude, lon: self.obtainedCoordinates!.coordinate.longitude, isoCountryCode: self.obtainedCode!)
+                self.db.addFriend(name: self.friend.name, email: self.friend.email, phone: self.friend.phone, city: self.friend.city, country: self.friend.country, lat: self.obtainedCoordinates!.coordinate.latitude, lon: self.obtainedCoordinates!.coordinate.longitude, isoCountryCode: self.obtainedCode!)
                 
                 print(#function, "Coordinates obtained\nLat: \(coordinates!.coordinate.latitude) \nLng: \(coordinates!.coordinate.longitude)")
             }else{
@@ -129,7 +124,7 @@ struct ContentView: View {
     private func isInputValid() -> Bool {
         
         //Check no fields are empty (I want email to be manditory also)
-        if(tvName.isEmpty || tvEmail.isEmpty || tvPhone.isEmpty || tvCity.isEmpty || tvCountry.isEmpty || tvStreet.isEmpty){
+        if(self.friend.name.isEmpty || self.friend.email.isEmpty || self.friend.phone.isEmpty || self.friend.city.isEmpty || self.friend.country.isEmpty || tvStreet.isEmpty){
             print(#function, "At least one field is empty")
             self.errorMessage = "Please complete all fields"
             self.inputError = true
@@ -137,7 +132,7 @@ struct ContentView: View {
         }
         
         //Check that email is of good format
-        if(!self.isEmailValid(email: tvEmail)){
+        if(!self.isEmailValid(email: self.friend.email)){
             print(#function, "Invalid email format")
             self.errorMessage = "Invalid email format"
             self.inputError = true
@@ -145,7 +140,7 @@ struct ContentView: View {
         }
         
         //Check that the phone is 10-12 chars only
-        if(!self.isPhoneValid(phone: tvPhone)){
+        if(!self.isPhoneValid(phone: self.friend.phone)){
             print(#function, "Phone is of improper format")
             self.errorMessage = "Invalid phone format"
             self.inputError = true

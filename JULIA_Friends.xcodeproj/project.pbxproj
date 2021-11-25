@@ -335,6 +335,8 @@
 				DEVELOPMENT_TEAM = 7DFT7356Z4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "JULIA_Friends would like to use your location to provide you an optimized experience";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "JULIA_Friends would like to use your location to provide you an optimized experience";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -364,6 +366,8 @@
 				DEVELOPMENT_TEAM = 7DFT7356Z4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "JULIA_Friends would like to use your location to provide you an optimized experience";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "JULIA_Friends would like to use your location to provide you an optimized experience";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
